@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Music App</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(#050505, #18181d);
+        }
+        
+        .login-form {
+            background-color: #202026;
+            padding: 40px;
+            border-radius: 8px;
+            width: 350px;
+            text-align: center;
+        }
+        
+        .login-form h2 {
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .input-group label {
+            display: block;
+            color: #919191;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: #1d1d1d;
+            border: 1px solid #464748;
+            border-radius: 6px;
+            color: #fff;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #5773ff;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .signup-link {
+            color: #919191;
+            margin-top: 20px;
+            display: block;
+        }
+        
+        .signup-link a {
+            color: #5773ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">Username or Email</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <span class="signup-link">Don't have an account? <a href="#" id="signupLink">Sign up</a></span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            
+            if(username && password) {
+             
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('username', username);
+                
+                
+                window.location.href = 'project.html';
+            } else {
+                alert('Please enter both username and password');
+            }
+        });
+        
+        document.getElementById('signupLink').addEventListener('click', function() {
+            alert('Sign up functionality would go here');
+            
+        });
+    </script>
+</body>
+</html>
